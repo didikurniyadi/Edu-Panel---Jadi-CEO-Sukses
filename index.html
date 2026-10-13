@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduPanel IFP - Wirausaha Interaktif & Asesmen Pintar</title>
+    <meta name="description" content="Aplikasi pembelajaran interaktif Flat Panel berbasis web dengan fitur kuis real-time, anotasi kolaboratif, sinkronisasi multi-perangkat, asesmen awal kewirausahaan, pembagian kelompok cerdas berbasis gender dan skor, serta integrasi Google Spreadsheet." />
+    <meta property="og:title" content="EduPanel IFP - Wirausaha Interaktif & Asesmen Pintar" />
+    <meta property="og:description" content="Aplikasi pembelajaran interaktif Flat Panel berbasis web dengan fitur kuis real-time, anotasi kolaboratif, sinkronisasi multi-perangkat, asesmen awal kewirausahaan, pembagian kelompok cerdas berbasis gender dan skor, serta integrasi Google Spreadsheet." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#1e3a8a" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="EduPanel" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <script>
+      (function () {
+        // Suppress dev WebSocket errors in cloud sandbox environment
+        var origConsoleError = console.error;
+        console.error = function () {
+          var args = Array.prototype.slice.call(arguments);
+          var isWsError = args.some(function (arg) {
+            if (!arg) return false;
+            var str = String(arg.message || arg.stack || arg);
+            return str.includes('WebSocket') || str.includes('vite:client') || (str.includes('[vite]') && str.includes('closed'));
+          });
+          if (isWsError) return;
+          origConsoleError.apply(console, args);
+        };
+
+        window.addEventListener('error', function (event) {
+          if (event && (String(event.message || '').includes('WebSocket') || String(event.error?.message || '').includes('WebSocket'))) {
+            event.stopImmediatePropagation();
+            event.preventDefault();
+          }
+        }, true);
+
+        window.addEventListener('unhandledrejection', function (event) {
+          if (event && (String(event.reason || '').includes('WebSocket') || String(event.reason?.message || '').includes('WebSocket'))) {
+            event.stopImmediatePropagation();
+            event.preventDefault();
+          }
+        }, true);
+
+        // Safe stub for Vite HMR dev client to prevent "WebSocket closed without opened"
+        var NativeWebSocket = window.WebSocket;
+        if (NativeWebSocket) {
+          window.WebSocket = function (url, protocols) {
+            var isViteHmr = protocols === 'vite-hmr' ||
+              (Array.isArray(protocols) && protocols.indexOf('vite-hmr') !== -1) ||
+              (typeof url === 'string' && !url.includes('/ws') && (url.includes('ais-dev') || url.includes('localhost') || url.includes('127.0.0.1')));
+
+            if (isViteHmr && (protocols === 'vite-hmr' || (Array.isArray(protocols) && protocols.indexOf('vite-hmr') !== -1))) {
+              var fake = new EventTarget();
+              fake.readyState = 1; // WebSocket.OPEN
+              fake.url = url;
+              fake.protocol = 'vite-hmr';
+              fake.bufferedAmount = 0;
+              fake.send = function () {};
+              fake.close = function (code, reason) {
+                fake.readyState = 3; // WebSocket.CLOSED
+                fake.dispatchEvent(new CloseEvent('close', { wasClean: true, code: code || 1000, reason: reason || '' }));
+              };
+              setTimeout(function () {
+                fake.dispatchEvent(new Event('open'));
+              }, 10);
+              return fake;
+            }
+            return new NativeWebSocket(url, protocols);
+          };
+          window.WebSocket.prototype = NativeWebSocket.prototype;
+          window.WebSocket.CONNECTING = 0;
+          window.WebSocket.OPEN = 1;
+          window.WebSocket.CLOSING = 2;
+          window.WebSocket.CLOSED = 3;
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

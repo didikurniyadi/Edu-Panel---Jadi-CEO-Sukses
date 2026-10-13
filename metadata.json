@@ -1,0 +1,6 @@
+{
+  "name": "EduPanel IFP - Wirausaha Interaktif & Asesmen Pintar",
+  "description": "Aplikasi pembelajaran interaktif Flat Panel berbasis web dengan fitur kuis real-time, anotasi kolaboratif, sinkronisasi multi-perangkat, asesmen awal kewirausahaan, pembagian kelompok cerdas berbasis gender dan skor, serta integrasi Google Spreadsheet.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
