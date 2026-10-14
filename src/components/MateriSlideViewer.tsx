@@ -161,18 +161,18 @@ export const MateriSlideViewer: React.FC<MateriSlideViewerProps> = ({
         </div>
 
         {/* Thumbnail Selector Pills */}
-        <div className="hidden md:flex items-center gap-1 overflow-x-auto max-w-lg py-0.5">
+        <div className="hidden md:flex items-center gap-1 overflow-x-auto max-w-xl xl:max-w-2xl py-0.5">
           {MATERI_SLIDES.map((slide, idx) => (
             <button
               key={slide.id}
               onClick={() => onSlideChange(idx)}
-              className={`px-2.5 py-1 rounded-lg text-[11px] font-bold whitespace-nowrap transition ${
+              className={`px-2.5 py-1 rounded-lg text-[11px] font-bold whitespace-nowrap transition shrink-0 ${
                 currentSlide === idx
                   ? 'bg-blue-600 text-white shadow-sm'
                   : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
-              {idx + 1}. {slide.title.slice(0, 14)}...
+              {idx + 1}. {slide.shortTitle || slide.title.slice(0, 14)}
             </button>
           ))}
         </div>

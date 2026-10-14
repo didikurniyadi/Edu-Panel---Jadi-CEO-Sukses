@@ -2,6 +2,7 @@ export interface Slide {
   id: number;
   badge: string;
   title: string;
+  shortTitle?: string;
   subtitle: string;
   tags: string[];
   sections: {
@@ -20,8 +21,46 @@ export interface Slide {
 export const MATERI_SLIDES: Slide[] = [
   {
     id: 1,
+    badge: 'Pengantar & Orientasi Belajar',
+    title: 'Tujuan Pembelajaran',
+    shortTitle: 'Tujuan Belajar',
+    subtitle: 'Kompetensi & Arah Capaian Modul Cikal Wirausahawan Sukses (MGBK Banyumas)',
+    tags: ['Tujuan Pembelajaran', 'Kemandirian Hidup', 'Karakter Wirausaha', 'Kurikulum Merdeka'],
+    sections: [
+      {
+        heading: 'Capaian & Fokus Pembelajaran',
+        description: 'Melalui modul bimbingan dan proyek kolaboratif ini, peserta didik dipersiapkan untuk menumbuhkan kemandirian hidup, kepekaan peluang ekonomi, dan mentalitas berwirausaha sejak usia sekolah.',
+        bullets: [
+          '1. Sikap (Afektif): Menginternalisasi 4 perilaku kunci (Hemat, Gigih, Kompetitif, dan Kolaboratif) dalam aktivitas harian dan kerja tim.',
+          '2. Pengetahuan (Kognitif): Memahami 6 tahapan merintis usaha baru, metode riset pasar kebutuhan konsumen, serta memetakan potensi bisnis lokal Banyumas.',
+          '3. Keterampilan (Psikomotorik): Mampu merancang gagasan usaha sederhana pada LKPD Kolaboratif dan mempraktikkannya dalam simulasi Pasar Kreatif (Play Therapy).',
+        ],
+        iconType: 'target',
+        highlight: 'Membimbing siswa agar tidak hanya memahami konsep teori, melainkan memiliki keberanian mengambil inisiatif dan berkreasi secara nyata.',
+      },
+      {
+        heading: 'Indikator Keberhasilan Siswa',
+        description: 'Siswa dikatakan berhasil mencapai tujuan pembelajaran apabila dapat memenuhi kriteria kompetensi berikut:',
+        bullets: [
+          'Mengetahui profil minat wirausaha pribadi melalui asesmen awal secara jujur dan reflektif.',
+          'Mampu mengidentifikasi masalah di lingkungan sekitar dan mengubahnya menjadi solusi bernilai jual.',
+          'Bekerja sama secara aktif dan harmonis bersama rekan kelompok dalam pembagian peran unit usaha.',
+          'Percaya diri mengkomunikasikan keunggulan produk dan nilai tambah usaha di hadapan teman dan guru.',
+        ],
+        iconType: 'award',
+        highlight: 'Setiap siswa memiliki potensi unik untuk bertumbuh menjadi pribadi mandiri yang siap menyongsong masa depan.',
+      },
+    ],
+    quoteOrSummary: {
+      text: '"Tujuan belajar bukan sekadar mengumpulkan nilai, melainkan menumbuhkan keberanian berkarya dan hidup mandiri."',
+      authorOrSource: 'Tujuan Modul 14 AKSES — MGBK Banyumas',
+    },
+  },
+  {
+    id: 2,
     badge: 'Bagian A: Orientasi & Nilai Dasar',
     title: 'Jadi Cikal Wirausahawan Sukses',
+    shortTitle: 'Nilai Dasar',
     subtitle: 'Mengembangkan 4 Perilaku Kunci untuk Kemandirian Hidup (MGBK Banyumas)',
     tags: ['Kemandirian', 'Karakter Wirausaha', 'Fondasi'],
     sections: [
@@ -49,9 +88,10 @@ export const MATERI_SLIDES: Slide[] = [
     },
   },
   {
-    id: 2,
+    id: 3,
     badge: 'Bagian B: Studi Kasus Inspiratif',
     title: 'Kisah Inspiratif: Mia si Wirausahawan Digital Muda',
+    shortTitle: 'Kasus Mia',
     subtitle: 'Menjawab Tantangan Zaman Lewat Transformasi & Adaptasi Teknologi',
     tags: ['Studi Kasus', 'Digitalisasi', 'Resiliensi'],
     sections: [
@@ -78,9 +118,10 @@ export const MATERI_SLIDES: Slide[] = [
     },
   },
   {
-    id: 3,
+    id: 4,
     badge: 'Bagian C: Alur Tahapan Usaha',
     title: '6 Langkah Memulai & Merintis Usaha Baru',
+    shortTitle: '6 Langkah Usaha',
     subtitle: 'Roadmap Praktis bagi Pemula dari Ide hingga Pemasaran Produk',
     tags: ['Langkah Usaha', 'Perencanaan', 'Bootstrapping'],
     sections: [
@@ -112,9 +153,10 @@ export const MATERI_SLIDES: Slide[] = [
     },
   },
   {
-    id: 4,
+    id: 5,
     badge: 'Bagian D: Riset Pasar Nyata',
     title: 'Meneliti Pasar: Kisah Sukses Roti Organik Andi',
+    shortTitle: 'Riset Pasar Andi',
     subtitle: 'Menemukan Peluang Emas Lewat 4 Dimensi Analisis Riset Pasar',
     tags: ['Riset Pasar', 'Diferensiasi', 'Kebutuhan Konsumen'],
     sections: [
@@ -146,9 +188,10 @@ export const MATERI_SLIDES: Slide[] = [
     },
   },
   {
-    id: 5,
+    id: 6,
     badge: 'Bagian E: Tokoh Inspiratif Remaja',
     title: 'Wirausahawan Sukses Indonesia yang Mulai Sejak Usia Sekolah',
+    shortTitle: 'Tokoh Remaja',
     subtitle: 'Bukti Nyata Bahwa Usia Muda Memiliki Energi dan Peluang Luar Biasa',
     tags: ['Tokoh Sukses', 'Inspirasi Usia Muda', 'Role Model'],
     sections: [
@@ -176,9 +219,10 @@ export const MATERI_SLIDES: Slide[] = [
     },
   },
   {
-    id: 6,
+    id: 7,
     badge: 'Bagian F: Potensi Lokal Banyumas',
     title: '5 Ide Bisnis Potensial di Wilayah Kabupaten Banyumas',
+    shortTitle: 'Potensi Banyumas',
     subtitle: 'Menggali Kekayaan Lokal, Tren Anak Muda, dan Kebutuhan Masyarakat',
     tags: ['Banyumas', 'Ide Bisnis Lokal', 'Peluang Nyata'],
     sections: [
@@ -202,9 +246,10 @@ export const MATERI_SLIDES: Slide[] = [
     },
   },
   {
-    id: 7,
+    id: 8,
     badge: 'Bagian G: Pembelajaran Aplikatif',
     title: 'Play Therapy: Simulasi "Pasar Kreatif Sekolah"',
+    shortTitle: 'Play Therapy',
     subtitle: 'Metode Bermain Peran Kolaboratif untuk Mengasah Insting Wirausaha Nyata',
     tags: ['Play Therapy', 'Pasar Kreatif', 'Kerja Kelompok'],
     sections: [
@@ -234,6 +279,44 @@ export const MATERI_SLIDES: Slide[] = [
     quoteOrSummary: {
       text: '"Belajar wirausaha lewat bermain: menanamkan benih keberanian, kerjasama, dan kreativitas sejak dini."',
       authorOrSource: 'Panduan Play Therapy — Halaman 22-23 Modul AKSES',
+    },
+  },
+  {
+    id: 9,
+    badge: 'Rangkuman & Refleksi Pembelajaran',
+    title: 'Kesimpulan Pembelajaran',
+    shortTitle: 'Kesimpulan Belajar',
+    subtitle: 'Intisari Nilai Kunci, Sikap Mental, dan Komitmen Aksi Menuju Kemandirian',
+    tags: ['Kesimpulan', 'Refleksi Diri', 'Kemandirian Hidup', 'Aksi Nyata'],
+    sections: [
+      {
+        heading: '4 Intisari Utama Pembelajaran',
+        description: 'Rangkuman pemahaman penting yang menjadi bekal wirausahawan muda masa depan:',
+        bullets: [
+          '1. Modal Utama adalah Karakter: Keberhasilan usaha berakar pada 4 perilaku kunci: Hemat mengelola sumber daya, Gigih menghadapi tantangan, Kompetitif berinovasi, dan Kolaboratif bersinergi.',
+          '2. Peka Terhadap Masalah Masyarakat: Wirausaha sejati bukan sekadar menjual barang, melainkan menghadirkan solusi atas persoalan konsumen (seperti kisah sukses Mia & Andi).',
+          '3. Mengoptimalkan Potensi Lokal: Banyumas menyimpan limpahan peluang usaha di sektor kuliner, busana, kriya ramah lingkungan, agrobisnis, hingga jasa kreatif digital.',
+          '4. Berani Memulai & Bootstrapping: Awali dari langkah mikro dengan modal yang ada, jangan takut gagal, dan jadikan setiap rintangan sebagai sarana pembelajaran terbaik.',
+        ],
+        iconType: 'lightbulb',
+        highlight: 'Kunci sukses sejati: Bertindak konsisten, tidak takut gagal, dan selalu mengutamakan manfaat bagi sesama.',
+      },
+      {
+        heading: 'Komitmen & Rencana Tindak Lanjut Siswa',
+        description: 'Langkah nyata yang dilakukan siswa setelah menyelesaikan sesi materi ini:',
+        bullets: [
+          'Tuntaskan Pengisian LKPD: Susun ide usaha kelompok secara terperinci mencakup nama merek, keunggulan produk, target pasar, dan estimasi modal sederhana.',
+          'Aktif dalam Play Therapy: Ambil peran terbaik saat simulasi "Pasar Kreatif Sekolah", latih kemampuan komunikasi promosi dan kerja sama tim.',
+          'Refleksi Diri Berkelanjutan: Terapkan kebiasaan hemat dan sikap pantang menyerah dalam kehidupan sehari-hari di rumah maupun sekolah.',
+          'Gantungkan Cita-Cita: Tuliskan tekad usaha masa depan di "Pohon Impian Wirausaha" sebagai pengingat arah perjuangan.',
+        ],
+        iconType: 'users',
+        highlight: '"Masa depan adalah milik mereka yang berani bermimpi dan mulai melangkah hari ini!"',
+      },
+    ],
+    quoteOrSummary: {
+      text: '"Jadilah cikal wirausahawan yang mandiri, berkarakter teguh, dan menebar manfaat nyata bagi lingkungan sekitar."',
+      authorOrSource: 'Rangkuman Akhir Modul AKSES — MGBK Kabupaten Banyumas',
     },
   },
 ];
